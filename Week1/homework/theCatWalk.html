@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Cat Walk</title>
+  </head>
+  <body style="position:relative;">
+    <img
+      style="position:absolute ;"
+      src="http://www.anniemation.com/clip_art/images/cat-walk.gif"
+      width="300px"
+    />
+    <script>
+      'use strict';
+
+      function walkingDancingCat() {
+        let pos = 0;
+        const cat = document.querySelector("img");
+        let id = setInterval(frame, 50);
+        let isDancing = false;
+        let hasDanced = false;
+
+        function startDance() {
+          console.log("startDance");
+          cat.setAttribute(
+            "src",
+            "https://media.tenor.com/images/b413d00f7c04ec226e2ffda388d322ae/tenor.gif"
+          );
+          isDancing = true;
+          setTimeout(finishDance, 5000);
+        }
+
+        function finishDance() {
+          console.log("finishDance");
+          cat.setAttribute(
+            "src",
+            "http://www.anniemation.com/clip_art/images/cat-walk.gif"
+          );
+          isDancing = false;
+          hasDanced = true;
+        }
+
+        function frame() {
+          if (
+            !isDancing &&
+            !hasDanced &&
+            2 * pos >= window.innerWidth - cat.width
+          ) {
+            startDance();
+          }
+
+          if (!isDancing) {
+            if (pos >= window.innerWidth - cat.width) {
+              console.log("resetting pos");
+              cat.style.left = 0;
+              pos = 0;
+              hasDanced = false;
+            } else {
+              console.log("increasing pos");
+              pos += 10;
+              cat.style.left = pos + "px";
+            }
+          }
+        }
+      }
+
+      walkingDancingCat();
+    </script>
+  </body>
+</html>

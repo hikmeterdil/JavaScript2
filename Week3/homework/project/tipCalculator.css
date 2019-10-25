@@ -1,0 +1,25 @@
+body {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-flow: column, nowrap;
+}
+
+#bill-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+
+  background-color: rgb(175, 174, 174);
+}
+
+.ele {
+  position: relative;
+  justify-self: center;
+  padding: 20px;
+  padding-top: 40px;
+}
